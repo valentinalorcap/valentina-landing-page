@@ -1,0 +1,53 @@
+/* "Corner Fill Wide" — two 4-color clusters on the diagonal, plus a
+   teal + violet accent pair in each of the two corners that were left
+   white. The gradient lives on ::before (oversized, absolutely
+   positioned) instead of directly on the wrapper, so the drift
+   animation moves only the background — the name/links stay static. */
+
+.wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  background:
+    /* cluster A — upper-left */
+    radial-gradient(circle at 26% 32%, var(--bloom-violet) 0%, transparent 28%),
+    radial-gradient(circle at 35% 33%, var(--bloom-sky) 0%, transparent 28%),
+    radial-gradient(circle at 25% 39%, var(--bloom-teal) 0%, transparent 28%),
+    radial-gradient(circle at 34% 40%, var(--bloom-gold) 0%, transparent 28%),
+    /* cluster B — lower-right */
+    radial-gradient(circle at 68% 63%, var(--bloom-violet) 0%, transparent 28%),
+    radial-gradient(circle at 77% 64%, var(--bloom-sky) 0%, transparent 28%),
+    radial-gradient(circle at 67% 70%, var(--bloom-teal) 0%, transparent 28%),
+    radial-gradient(circle at 76% 71%, var(--bloom-gold) 0%, transparent 28%),
+    /* accent — top-right white corner: teal + violet */
+    radial-gradient(circle at 88% 8%, var(--bloom-teal) 0%, transparent 28%),
+    radial-gradient(circle at 95% 18%, var(--bloom-violet) 0%, transparent 28%),
+    /* accent — bottom-left white corner: teal + violet */
+    radial-gradient(circle at 12% 92%, var(--bloom-teal) 0%, transparent 28%),
+    radial-gradient(circle at 5% 82%, var(--bloom-violet) 0%, transparent 28%),
+    var(--background);
+  animation: drift 24s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(-1.5%, -1%) scale(1);
+  }
+  50% {
+    transform: translate(1.5%, 1%) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper::before {
+    animation: none;
+  }
+}
