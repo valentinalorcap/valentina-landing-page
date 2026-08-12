@@ -43,3 +43,6 @@ next-env.d.ts
 # local-only design exploration (color/gradient mockups tried before
 # settling on the approved BloomBackground — never pushed to GitHub)
 /mockups
+
+# local-only planning notes — never pushed to GitHub
+/docs
