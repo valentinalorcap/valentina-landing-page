@@ -46,3 +46,6 @@ next-env.d.ts
 
 # local-only planning notes — never pushed to GitHub
 /docs
+
+# local-only agent guidance — never pushed to GitHub
+/CLAUDE.md
