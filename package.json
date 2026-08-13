@@ -1,6 +1,9 @@
 {
   "name": "valentina-landing-page",
   "version": "0.1.0",
+  "description": "Personal landing page for Valentina Lorca, built with Next.js and Tailwind CSS.",
+  "author": "Valentina Lorca",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
